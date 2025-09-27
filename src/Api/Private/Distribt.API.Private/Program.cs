@@ -1,3 +1,4 @@
-WebApplication app = DefaultDistribtWebApplication.Create();
+WebApplication app = DefaultDistribSystemsWebApplication.Create();
+
 app.MapGet("/", () => "Hello World!");
-DefaultDistribtWebApplication.Run(app);
+DefaultDistribSystemsWebApplication.Run(app);
