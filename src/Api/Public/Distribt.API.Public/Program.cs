@@ -1,5 +1,12 @@
-WebApplication app = DefaultDistribtWebApplication.Create();
+WebApplication app = DefaultDistribSystemsWebApplication.Create(builder =>
+{
+    builder
+        .Services.AddReverseProxy()
+        .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
+});
+
+app.MapReverseProxy();
 
 app.MapGet("/", () => "Hello World!");
 
-DefaultDistribtWebApplication.Run(app);
+DefaultDistribSystemsWebApplication.Run(app);
